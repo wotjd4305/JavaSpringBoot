@@ -1,0 +1,18 @@
+#목표
+1)LiveReload 사용으로 즉각 반영
+2)기본적으로 브라우저에 접근해보기
+
+#과정
+1)Ctrl + N후 Spring Starter Project로 생성 및 설정
+	Spring web 체크, mustache 체크. devtools(효율성) 체크.
+2)Bott Dashborad에서 서버를 실행 및 중단 가능.
+3)https://localhost:8080으로 접근 시 에러(구현 해놓은것이 없음)
+4)src/main/resources > static > Ctrl + N > Html파일로 index.html작성.
+5)body안에 hello world! 작성후. 브라우저로 접근가능
+
+#LiveReload
+즉각적인 결과를 보고싶을때 사용 -> Refresh 자동으로 해줌.
+devtools 라이브러리를 dependecy로 줘서 인식하여 정상적 동작한것임.
+
+#깨알 명령어
+<br/> - 줄 띄우기

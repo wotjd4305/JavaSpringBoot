@@ -1,0 +1,31 @@
+#목표
+1)부트 스트랩을 이용한 html 페이지개발
+2)로컬 개발 환경 세팅
+
+#과정 - 부트스르랩과 J쿼리를 라이브러리 추가
+1)bootstap에가서 부트스트랩과 J쿼리를 지원할 수 있도록 라이브러리 추가.
+2)Basic template(Starter template로 바뀜) 카피 후, index.html로가서 변경
+3)템플렛을 출력한 브라우저의 도구 > 도구더보기 > network로 파일 다운로드 볼수있음
+4)MavenRepository.com > bootstrap 검색 후 복사 > pom.xml의 디펜던시에 추가 -> 관련된 자료 파일이 다운로드됨!
+5)Maven depency에 추가됨.
+6)bootstrap > META-INF > resources > webjars > bootstrap > 버전(4.3.1) > css > bootstrap.min.css 의 위치 파악(+ 그 밑에잇는 js도)
+7)index.html의 <link href=~>에 위치 넣기.
+ex)<linkrel="stylesheethref="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" (+ j쿼리도 똑같이 적용하면됨.)
+
+#과정 - 네비게이션 바 추가하기
+1)getbootstrap.com > components > navbar > 코드 복사 > Body에 복사 > 필요한것만 남기고 삭제.
+2)CSS > FORMS > Basic Example 이용
+*요점 - 우리는 디자인에 대한 프로가 아니니 getbootstrap과 같은 라이브러리 활용시. HTML구성시 쉽게 구성가능!!
+ 
+#J쿼리
+자바스크립트 라이브러리로, 자바스크립트 언어롤 사용/
+HTML요소를 선택하고, CSS스타일 변경하는 등의 HTML과 CSS와 연관.
+
+#CSS
+웹 문서의 전반적인 스타일을 미리 저장해 둔 스타일시트.
+
+#깨알 명령어
+<!--(내용)--> - 주석달기
+<a></a> - 텍스트 인듯함.
+<div></div> - 행, 열 나누는 듯.
+<small op big></> - 문자열 크기 조절
