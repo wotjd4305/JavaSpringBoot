@@ -94,5 +94,5 @@
 6) tar -xvf = tar로 묶여잇던 파일이 풀림
 7) cd .. - 한칸뒤로
 8)ip route show - ip확인
-9)sudo lsof -i :8080 - 8080포트가 실행중인 프로세스찾음, 프로젝트 돌아가다가 안 돌아갈떄 사용!
-->sudo kill -9 [찾은PID] = 프로세스 중료
+9)sudo lsof -i :8080 - 8080포트가 실행중인 프로세스찾음, 프로젝트 돌아가다가 안 돌아갈떄 사용!(= ps -ef | grep websever)
+->sudo kill -9 [찾은PID] = 프로세스 종료
