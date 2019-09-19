@@ -1,0 +1,98 @@
+#목표
+1)자바깔기
+2)환경설정하기
+3)깃깔기
+4)깃클론으로 가져온 코드 웹서버로 실행하기
+5)방화벽 풀기(AWS로)
+
+
+#준비물
+1)저번 시간에 준비한 서버
+
+#[1]과정 - 자바(JDK)깔기 
+1)curl -L -C - -b "oraclelicense=accept-securebackup-cookie" -O 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz'
+2)gunzip 파일명.tar.gz
+3)tar -xvf 파일명.tar
+4)심볼릭 링크 후, ls -al로 링크된것을 확인.
+
+#[2]과정 - .bash_profile에 환경설정
+1)JAVA_HOME=/home/ubuntu(사용자이름)/java
+  PATH=$PATH:$JAVA_HOME/bin
+->사용자이름 주의하기.
+2):wq!로 나오기
+3)source bash_profile
+->환경설정
+4)env
+->환경보기
+5)java -version
+->설정했던 자바버전확인
+
+#[3]과정 - git 설치하기
+1)sudo apt-get update
+2)sudo apt-get install git
+3)git --version 
+-> 버전확인
+4)나의 Git URL 복사
+-> https://github.com/wotjd4305/JavaSpringBoot.git
+5)git clone https://github.com/wotjd4305/JavaSpringBoot.git
+-> 홈페이지의 코드가 원격서버에 복사가 됨.
+
+#[4]과정 - 깃클론 가져온것 코드로 웹서버 실행
+1)코드가있는 디렉토리에 들어가 mvnw실행(".mvnw clean package")
+->(!)Permission denied(오류) > chmod 755 ./mvnw(로그인 계졍만 실행권한주기)
+2)무수히 다운로드되는거 기다리기( 
+3)cd target > ls -al > my-slipp 파일 확인
+4)웹서버 실행을 위한 java -jar my-slip~.jar(파일명) > 웹서버 실행성공
+5) [5]과정으로 가기
+
+#[5]과정 - 원격서버 방화벽 풀기
+1)172.31.16.33(아이피):8080으로 원격서버 접근시 방화벽으로 못드감
+->8080방화벽 풀어줘야함
+2)sudo ufw status verbose
+->방화벽 여부 확인가능
+3)sudo ufw allow(<->deny) 8080/tcp
+->방화벽 열어줌
+4)java -jar my-slipp3...jar &
+->백그라운드 가능.
+
+3-2)AWS일경우 보안그룹 생성
+4-2)TYPE은 SSH타입, Sources는 My IP
+->원격제어하기위해 사용하는 방식,
++)만약 다른사람들도 접근하기 위해서는 TYPE은 HTTP, Source는 Anywhere
++)특정한 아이피도 가능하게 하려면 TYPE은 SSH, Source는 Custom ip
++)윈도우 인스턴스인경우 제어방식이 다르기 때문에 Type RDP, Source는 Custeom ip
+-> 어떤 방식이냐따라 허용하는게 다르다.
+5-2) 보안그룹 적용후 실행.
+6-2) my-slipp3/target$ java -jar my-slipp-...jar $
+
+#[번외]과정 - 환경변수 설정
+1)which javac
+->위치파익
+2)readlink -f /usr/bin/javac_
+->실제위치 파악
+3)export JAVA_HOME=/usr/lib/jvm/java-8-oracle/bin/javc
+4)reboot
+-리부팅
+5)echo $JAVA_HOME
+-환경변수가 제대로 잡혓는지 확인
+
+
+#깨알 용어 및 명령어
+-용어
+1)JDK(Java Development Kit) - 자바 SE, 자바 EE 플랫폼 중 하나를 구현한것.
+2)환경변수 설정 - 어디서든 해당파일에 접근하기 위해서.
+3)아파치 - 아파치 HTTP서버는 리눅스에서도 돌리는 것을 목표로 만들어짐.
+4)톰캣 - WAS과에 속하며, 스크립트를 통한 동적인 페이지를 처리 해줄수 있음(JSP, ASP,PHP) 자바 서블릿, jsp 기술구현을 위한 오픈소스. (웹서버와 웹컨테이너의 결합)
+
+-명령어
+1)gunzip 파일이름 - 압출풀기
+2)ln -s 파일이름/ 심볼릭 링크로 설정한 이름(별칭) - 별칭으로 준것으로 바로 접근을 가능하게함
+3)echo $JAVA_HOME - 자바가 환경변수에 잡혀있는지 확인
+-> 잡혀있으면 경로가 나오고 아니면 출력 없음.
+4)rm 파일명 - 삭제
+5)sudo apt-get purge openjdk* - 자바 삭제
+6) tar -xvf = tar로 묶여잇던 파일이 풀림
+7) cd .. - 한칸뒤로
+8)ip route show - ip확인
+9)sudo lsof -i :8080 - 8080포트가 실행중인 프로세스찾음, 프로젝트 돌아가다가 안 돌아갈떄 사용!
+->sudo kill -9 [찾은PID] = 프로세스 중료
