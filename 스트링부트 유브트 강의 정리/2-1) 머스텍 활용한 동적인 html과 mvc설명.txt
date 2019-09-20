@@ -1,0 +1,28 @@
+#목표
+1)컨트롤러를 이용하여 제어해보기, get방식을 이용한 데이터받아오기
+2)Mustache이용해보기
+
+#강좌[1] -
+1)컨트롤러 생성, 자동임폴트
+2)templates 하위에 welcome.html생성
+3)GetMapping("/helloworld") - 직접 html을 호출!
+->helloworld로 맵핑되있는 html파일을 찾게됨.
+4)ip:8080/helloworld로 하면되야함
+->(!)404에러가 뜸. > application.properties파일에 spring.mustache.suffix: .html 추가
+5)helloworld?name = 문자열로 받은값 찍어보기
+6)모델을 통하여 뷰로 문자열 보내보기, 인트형도 가능
+7)머시테시는 {{문자}}로 이용함
+->mustache.github/io/mustache/5.html에가면 사용법 확인가능.
+
+#용어 및 명령어
+-명령어
+1)Ctrl + Shift + O = 자동 임폴트
+2)주소/name=이름&age=13 = 이런식으로 서버에 문자보냄.
+->(!)Charset="UTF-8"로해야 한글이 제대로뜸.
+
+-용어
+1)Mustache - 제어구조를 갖춘 가장 문법이 간단하고 가장많은 언어로 포팅된 템플릿 엔진이다 한마디로 서버에서 받아온 데이터를 효과적으로 보여줄 중간 매개체.
+*특징
+코드를 줄일수있다.
+재사용성이 용이.
+유지보수 용이.
