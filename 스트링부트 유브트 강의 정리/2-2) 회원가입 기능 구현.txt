@@ -1,0 +1,26 @@
+#목표
+1)post와 get으로 데이터 넘기기
+2)매개변수가 많으니 User클래스를 만들어서 받자
+ 
+#강좌[1] - post, get으로 데이터넘기기
+1)html - <form action="/create"/>, "create" url로 보내겠다
+->localhost:8080/create로 접근가능
+2)요청을 받을 UserController만들기.
+3)get방식이면 url에 노출
+4)post방식으로 만들기
+->UserController에도 PostMapping으로..고쳐야함
+->URL에서 숨겨줌
+
+#강좌[1] - User클래스 이용
+1)User클래스를 만들고 getter, setter만들기.
+-> 매개변수가 많아지면 클래스를 차라리 만들어서하자
+-> 클래스 매개인자 이름은 같아야함..
+2)user를 반환
+->유저의 주소만 나옴. Userclass에서 toString()을 구현.
+
+
+
+#용어 및 명령어
+-명령어
+
+-용어

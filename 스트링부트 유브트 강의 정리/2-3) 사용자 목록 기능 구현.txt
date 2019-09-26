@@ -1,0 +1,31 @@
+#목표
+1)사용자 목록에 값을 저장하자(저번에는 출력만)
+
+#준비물
+1)저번에 만들어놧던 HTML(form,list)
+2)UserContorller
+ 
+#강좌[1] - 회원정보를 입력하여 html목록에 시작해주자
+1)저번과 똑같이 GetMapping으로 연결해준다.
+->@GetMapping("/list")
+2)매개변수를 Model형 객체로 받자. 
+3)html의 동적을 위해 머시테시를 이용.
+-><tbody>로, 직접 넣어줬던 값들은 변수명으로 ex){{email}}
+4)create랑 list부분을 연결
+->Controller에서 return값을 바꿔주면됨
+->ex)return "redirect:/list";
+5)서버 재시작하면 데이터없어짐
+->데이터베이스 사용
+
+#용어 및 명령어
+-명령어
+<caption> - 설명문,색이 연함(html)
+<tr> - 행(html)
+<th> - 열(html)
+<tbody> - 머시테시 쓰기위한 바디?(html)
+<thead> - 줄긋기(html)
+
+-용어
+Get - 데이터를 가져올때 주로새용.
+POST - 전달할때
+Dev tools - 최신내용을 빠르게 반영해주는 프로그램
