@@ -3,14 +3,17 @@ package net.slipp.web;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
+@ComponentScan(basePackages = "com.test")
+@EntityScan(basePackages = "com.test")
 public class UserController {
 	private List<User> users = new ArrayList<User>();
 	
