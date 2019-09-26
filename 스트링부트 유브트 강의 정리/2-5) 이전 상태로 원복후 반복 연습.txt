@@ -1,20 +1,9 @@
 #목표
-1)사용자 목록에 값을 저장하자(저번에는 출력만)
 
-#준비물
-1)깃 허브 커밋하고 서버로 접근하기
-->AWS인경우 스탑 후, 작동 시 아이피바뀜 Xshell다시설정해주자
- 
 #강좌[1] - 
-1)xShell > 프로젝트 디렉토리 > git pull > ./mvnw clean package
-->./mvnw 접근 거부시, chmod 775 ./mvnw로 권한조정
-2)target 디렉토리 > java -jar my-slipp-1.0.jar &
-3)서버에서 작동하려면 디펜던시에서 thymeleaf 추가, 
-4)어플리케이션.프로퍼티에서 추가
-
 
 #용어 및 명령어
 -명령어
-ps -ef | grep java(ubuntu) - 자바와 관련된 프로세스만 가져오기
+git push --force(우분투) - 강제로 날려라.
 
 -용어

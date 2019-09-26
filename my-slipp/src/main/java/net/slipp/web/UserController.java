@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@ComponentScan(basePackages = "net.slipp.web")
-@EntityScan(basePackages = "net.slipp.web")
 public class UserController {
 	private List<User> users = new ArrayList<User>();
 	
