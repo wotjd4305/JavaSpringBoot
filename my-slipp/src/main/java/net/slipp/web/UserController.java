@@ -19,7 +19,6 @@ public class UserController {
 	
 	//연결해주기
 	@RequestMapping("/")
-	@PostMapping("/create")
 	public String create(User user) {
 		System.out.println("user : " + user);
 		users.add(user);
@@ -27,7 +26,7 @@ public class UserController {
 	}
 	
 	//연결해주기
-	@GetMapping("/list")
+	@RequestMapping("/")
 	public String list(Model model) {
 		model.addAttribute("user", users); 
 		return "list";
