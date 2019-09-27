@@ -1,0 +1,16 @@
+#목표
+
+
+#과정[1] - 
+1)User클래스에 객체라는것을 선언
+->@Entity
+2)id를 primary키로 설정
+-> pirvate Long id
+3)Repository 만들고 Controller 수정하여 데이터베이스 생성및접근
+
+#용어 및 명령어
+-명령어
+
+
+
+-용어

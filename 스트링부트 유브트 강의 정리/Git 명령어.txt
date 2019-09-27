@@ -1,0 +1,77 @@
+*level1
+1)git commit - 커밋하기
+
+*level2
+1)git branch bugfix - 브랜치 만들기
+2)git checkout bugfix - bugfix로 이동하기(HEAD)
+
+*level3 - 브랜치와 합치기(bugFix를 master와 합치기)
+1)bugFix - 라는 브랜치 만들기
+2)git checkout bugFix - bugFix 브랜치로 이동
+3)commit
+4)git checout master
+5)commit
+6)git merge - master에 bugFix합치기
+
+*level4 - 리베이스
+1)bugFix 새브랜치 만들기
+2)커밋하기
+3)마스터가서 커밋하기
+4)bugFix선택하고 master에 리베이스
+
+*level5 - HEAD(현재 체크아웃된 커밋)
+1)git checkout C4;
+
+*level6 - 상대참조(master^ = master의 부모)
+사용법1)git checkout master^
+사용법2)git checout C3 > git checkout HEAD^
+1)git checkout bugFix
+2)git checkout HEAD^
+
+*level7 - 상대참조("~"연산자 사용, git checkout HEAD~4)
+1)git branch -f master HEAD~3 - 마스터 브랜치를 헤드에서 세번 뒤로 옮긴다.
+2) git rebase C6 (C6는 해시값)
+3) git checkout bugFix
+4) git branch -f bugFix HEAD~3
+5) git checkout master
+6) git checkout HEAD~3
+
+*level8 - Git에서 작업 되돌리기
+사용법1) git reset HEAD~1 (로컬 브랜치일 경우)
+사용법2) git revert (리모트 브랜치, 다른사람과 내용을 공유)
+
+*level9 - Cherry-pick(다수의 커밋을 관리하여 복사본)
+1)git cherry-pick C3 C4 C7
+2)git branch -f bugFix HEAD(지금헤드에 브랜치이름 설정)ㅎ
+
+*level10 - 인터렉티브 리베이스(원하는 커밋을 모를때!)
+1)git rebase -i HEAD~4
+->지금 해당 작업에서 4번쨰 위에서 복사!
+2)git branch -f maseter HEAD
+
+*level11 - 딱한개의 커밋만 가져오기
+사용법1)git reabse -i(i옵션으로 인해 선택가능)
+사용법2)git cherry-pick(개별 커밋을 골라서 HEAD위에)
+
+*level12 - 커밋가지고 놀기(commit -amend로 커밋내용정정)
+해결법 - 커밋의 순서가 뒤죽박죽이다. 
+1)rebase -i를 이용하여 순서를 맞추고
+2)git checkout (위치) - 로 HEAD위치를 설정하고
+2)git branch -f master HEAD로 master의 위치를 바꿀수있다.
+
+*level13 - 커밋가지고 놀기(cherry-pick으로 여러 커밋)
+1)git checkout C1
+2)git cherry-pick C2
+3)git checkout C1
+4)git cherrpy-pick C2' C3
+5)git branch -f master HEAD
+
+*level14 - git 태그(특정 커밋들을 브래친 참조하듯한 영구적인 이정표)
+사용법1) git tag v1 C1(이정표인 v1도 체크아웃가능)
+
+*level15 - git Describe(태그가 이정표라면, 상대적위치를 알려주는 git 디스크라이브)
+사용법1) git describe <ref>
+
+*level16 - 다수의 부모(^연산자는 첫부모부터 따라감)
+1)git checkout master~1^2~1
+2)git branch bugWork HEAD

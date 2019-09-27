@@ -1,33 +1,65 @@
 package net.slipp.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
-	private List<User> users = new ArrayList<User>();
+	//private List<User> users = new ArrayList<User>();
+	
+	//있다고 가정하고 가져다 씀
+	@Autowired
+	private UserRepository userRepository;
+	
 	
 	//연결해주기
-	@RequestMapping(value="/create" , method = {RequestMethod.GET, RequestMethod.POST})
+		@GetMapping("/form")
+		public String form() {
+			return "/user/form";
+		}
+		
+	
+	//연결해주기
+	@PostMapping("")
 	public String create(User user) {
 		System.out.println("user : " + user);
-		users.add(user);
-		return "redirect:/list";
+		userRepository.save(user);
+		return "redirect:/users";
 	}
 	
 	//연결해주기
-	@RequestMapping(value="/list" , method = {RequestMethod.GET, RequestMethod.POST})
+	@GetMapping("")
 	public String list(Model model) {
-		model.addAttribute("user", users); 
-		return "list";
+		model.addAttribute("users", userRepository.findAll()); 
+		return "/user/list";
 	}
+	
+	
+	//연결해주기
+	//PathVariable로 가져옴, 가져올 녀석이랑 이름같음 {id} = id가 되는것
+	//id로 찾겠따.
+			@GetMapping("{id}/form")
+			public String updateForm(@PathVariable Long id, Model model) {
+				User user = userRepository.findById(id).get();
+				model.addAttribute("user", user);
+				return "/user/updateForm";
+			}
+			
+	@PostMapping("/{id}")
+	public String update(@PathVariable Long id, User newUser)
+	{
+		User user = userRepository.findById(id).get();
+		user.update(newUser);
+		userRepository.save(user);
+		return "redirect:/users";
+	}
+	
 
 }

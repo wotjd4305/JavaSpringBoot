@@ -1,0 +1,11 @@
+*level1
+1)clone remote
+
+*level2 - 원격 브랜치
+1)git checkout origin/master;
+2)git commit
+
+*level3 - Git Fetch(가져오는 방법, 다운로드 단계 로컬상태는 안빠굼)
+
+*level4 - Git Pull(본질적으로 git fetch후에 내려받은 브랜치를 병합하는 과정의 단축)
+-> fetch와 merge의 조합으로 해결가능..(둘의 조합이다)
