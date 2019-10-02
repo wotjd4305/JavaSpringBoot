@@ -19,6 +19,12 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	
+	@GetMapping("/loginform")
+	public String loginForm() {
+		return "/user/login/";
+	}
+	
+	
 	//연결해주기
 		@GetMapping("/form")
 		public String form() {

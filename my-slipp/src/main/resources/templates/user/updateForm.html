@@ -1,40 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="kr">
   <head>
-     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>SLiPP Java Web Programming</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link href="/css/styles.css" rel="stylesheet">
+  {{> /include/header}} 
   </head>
   <body>
-<!-- ë„¤ë¹„ -->
-{{> /include/navigation}}
+<!-- ³×ºñ -->
+{{>/include/navigation}}
 
-<!--  í¼ -->  
+<!--  Æû -->  
 {{#user}}
  <form action="/users/{{id}}" method="post" >
  <input type="hidden" name="id" value={{id}}>
   <div class="form-group">
-    <label for="userId">ì•„ì´ë””</label>
-    <input type="userId" class="form-control" name="userId" aria-describedby="emailHelp" placeholder="ì•„ì´ë””" value ="{{userId}}">
+    <label for="userId">¾ÆÀÌµğ</label>
+    <input type="userId" class="form-control" name="userId" aria-describedby="emailHelp" placeholder="¾ÆÀÌµğ" value ="{{userId}}">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-    <label for="password">ë¹„ë°€ë²ˆí˜¸</label>
-    <input type="password" class="form-control" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸"  value ="{{userId}}">
+    <label for="password">ºñ¹Ğ¹øÈ£</label>
+    <input type="password" class="form-control" name="password" placeholder="ºñ¹Ğ¹øÈ£"  value ="{{userId}}">
   </div>
   <div class="form-group">
-    <label for="name">ì´ë¦„</label>
-    <input type="text" class="form-control" name="name" placeholder="ì´ë¦„"  value ="{{name}}">
+    <label for="name">ÀÌ¸§</label>
+    <input type="text" class="form-control" name="name" placeholder="ÀÌ¸§"  value ="{{name}}">
   </div>
   <div class="form-group">
-    <label for="email">ì´ë©”ì¼</label>
-    <input type="email" class="form-control" name="email" placeholder="ì´ë©”ì¼"  value ="{{email}}">
+    <label for="email">ÀÌ¸ŞÀÏ</label>
+    <input type="email" class="form-control" name="email" placeholder="ÀÌ¸ŞÀÏ"  value ="{{email}}">
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -44,10 +36,6 @@
 </form>
 {{/user}}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+{{>/include/footer}} 
+ </body>
 </html>
